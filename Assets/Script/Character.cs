@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         LookCursor();
-        AnimationControll(MoveVector());
+        MoveVector();
     }
 
     protected void LookCursor()
@@ -36,14 +36,13 @@ public class Character : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 pMoveVector = new Vector3(h, 0, v);
+        Vector3 pMoveVector = (new Vector3(h, 0, v)).normalized;
 
         transform.position += new Vector3(h, 0, v) * Time.deltaTime * 8;
 
+        anim.SetFloat("Forward", v);
+        anim.SetFloat("Turn", h);
+
         return pMoveVector;
-    }
-    protected void AnimationControll(Vector3 MoveVec)
-    {
-        
     }
 }
