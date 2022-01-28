@@ -152,15 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6780e462d8436b34ca25ff0a061005a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GunState: 0
   g_Bullet: {fileID: 1795072395756124, guid: d223fbf886f2aa4408426d093198ef12, type: 3}
   MuzzleOffset: {fileID: 1889569374}
   Damage: 0
-  MaxArmor: 0
+  MaxArmor: 30
   ShotCount: 1
-  Bullet_Speed: 100
-  Rebound: 2
-  MaxFireCoolTime: 0.06
+  Bullet_Speed: 30
+  Rebound: 10
+  MaxFireCoolTime: 0.05
   MaxReloadingCool: 0
+  CurArmor: 0
 --- !u!1 &865485322
 GameObject:
   m_ObjectHideFlags: 0
