@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProjectileMover : MonoBehaviour
 {
+    public float Damage;
+
     public GameObject hit;
     public GameObject flash;
     private Rigidbody rb;
@@ -27,10 +29,18 @@ public class ProjectileMover : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject,5);
-	}
+        Destroy(gameObject, 5);
+    }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="Player")
+        {
+            Character hitPlayer = other.gameObject.GetComponent<Character>();
+            hitPlayer.CurHP -= Damage;
+            Destroy(this.gameObject);
+        }
+    }
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     //void OnCollisionEnter(Collision collision)
     //{

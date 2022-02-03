@@ -5,9 +5,16 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     Animator anim;
-    void Start()
+
+    [Header("State")]
+    public float MaxHP;
+    public float CurHP;
+
+
+    private void Awake()
     {
         anim = GetComponent<Animator>();
+        CurHP = MaxHP;
     }
 
     // Update is called once per frame
